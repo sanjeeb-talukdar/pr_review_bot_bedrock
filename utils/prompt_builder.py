@@ -1,0 +1,15 @@
+def build_prompt(guidelines, diff):
+    return f"""
+You are an expert code reviewer.
+
+=== CODING GUIDELINES ===
+{guidelines}
+
+=== PULL REQUEST DIFF ===
+{diff}
+
+Please provide review comments in the format:
+- File: filename
+- Line: line number
+- Comment: your comment
+"""

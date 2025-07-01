@@ -1,0 +1,16 @@
+service: pr-review-bot
+provider:
+  name: aws
+  runtime: python3.10
+  region: us-east-1
+  environment:
+    S3_BUCKET: my-review-guidelines-bucket
+    GUIDELINES_KEY: guidelines/latest-guidelines.md
+
+functions:
+  reviewBot:
+    handler: lambda/handler.handler
+    events:
+      - http:
+          path: review
+          method: post
